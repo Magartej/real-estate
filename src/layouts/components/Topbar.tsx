@@ -1,7 +1,6 @@
 import React, { useState, useEffect, FC } from "react";
 import Link from "next/link";
-import { BiMenuAltLeft } from "react-icons/bi";
-import { IoCloseOutline } from "react-icons/io5";
+import { IoPersonCircle, IoMenu } from "react-icons/io5";
 
 const TopBar: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,67 +29,11 @@ const TopBar: FC = () => {
         <h1 className="text-3xl font-bold">
           <Link href="/">WESTON</Link>
         </h1>
-        <nav className="hidden md:block">
-          <ul className="flex space-x-6">
-            <li>
-              <Link href="/">
-                <p className="hover:text-gray-600">Home</p>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <p className="hover:text-gray-600">About</p>
-              </Link>
-            </li>
-            <li>
-              <Link href="/properties">
-                <p className="hover:text-gray-600">Properties</p>
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact">
-                <p className="hover:text-gray-600">Contact</p>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <button
-          className="md:hidden rounded p-2 focus:outline-none focus:ring"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? (
-            <IoCloseOutline className="h-6 w-6" aria-hidden="true" />
-          ) : (
-            <BiMenuAltLeft className="h-6 w-6" aria-hidden="true" />
-          )}
+        <button className="flex gap-1 border rounded-3xl px-1.5 py-1 ">
+          <IoMenu className="h-8 w-6" />
+          <IoPersonCircle className="h-8 w-8" />
         </button>
       </div>
-      {isMenuOpen && (
-        <div className="md:hidden absolute w-full top-full left-0 bg-white">
-          <ul className="flex flex-col items-center space-y-6 py-6">
-            <li>
-              <Link href="/">
-                <p className="hover:text-gray-600">Home</p>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <p className="hover:text-gray-600">About</p>
-              </Link>
-            </li>
-            <li>
-              <Link href="/properties">
-                <p className="hover:text-gray-600">Properties</p>
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact">
-                <p className="hover:text-gray-600">Contact</p>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
     </header>
   );
 };
